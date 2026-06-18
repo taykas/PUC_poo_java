@@ -1,0 +1,50 @@
+Compilador:
+
+    Cenário:
+    Cena 1: Chef de cozinha que lê passo a passo de uma receita e vai fazendo conforme a leitura.
+    Cena 2: Chef lê a receita inteira e deixa tudo adiantado.
+
+    Nessa metáfora podemos entender a CENA 1 como o interpretador e a 2 como o Compilador.
+    Enquanto o interpretador executa as instruções à medida que as encontra, o compilador processa o conjunto completo de instruções antes da execução.
+
+    O compilador transforma um código escrito em uma linguagem de programação.
+    O código escrito em Java é convertido para uma sequência de instruções que só o computador entenderá.
+
+    Essa transformação acontece em dois momentos:
+    1. Tempo de compilação (compile time): envolve os eventos que ocorrem durante o processo de compilação, Transforma o código-fonte escrito em linguagem binária.
+    2. Tempo de execução (runtime): envolve os eventos que ocorrem durante a execução do programa.
+
+    JVM: Java Virtual Machine
+    componente crucial do ambiente de execução do Java, responsável por executar programas escrtios em linguagem Java.
+    em resumo, é uma "maquina virtual" que compreende e executa um codigo Java
+
+    Quando escrevemos um programa em linguagem Java, o codigo fonte nao pode ser executado diretamente pelo computadpr, ele é transformado em um formato chamado bytecode, ele é um conjunto de instruções em linguagem de maquina, projetado para ser executado por uma maquina virtual, como a JVM.
+    Uma das vantagens do bytecode é que ele é independente do hardware e do sistema operacional que será executado.
+
+Desenvolvendo programas em J:
+
+Características e Descrições:
+
+Orientada a objetos
+    Programas em Java podem ser desenvolvidos usando conceitos de programação orientada a objetos.
+
+Neutra em relação à arquitetura
+    Não possui vínculo com determinado equipamento ou arquitetura de sistema operacional: não importa se você usa Windows, Linux ou Mac. Não importa se é um tablet, celular ou computador: o código deve funcionar do mesmo jeito.
+
+Portabilidade
+    Independente de plataforma: escreva o código uma vez e o execute em qualquer lugar.
+
+Bytecode
+    Uma representação intermediária do seu código Java, que contém instruções compreensíveis pela JVM, como mostramos anteriormente.
+
+JVM
+    A máquina virtual Java (JVM, ou Java Virtual Machine) é um programa que carrega, interpreta e executa programas Java, convertendo seu bytecode em código executável de máquina. Existe um JVM feito especialmente para cada sistema operacional (Windows, Linux, Mac etc.).
+
+Compilada e Interpretada
+    Programas (arquivos.java) são compilados para o formato bytecode (arquivos .class) que são interpretados pela JVM, como mostramos anteriormente.
+
+APIs
+    API significa Aplication Program Interface. Servem para facilitar o trabalho com arquivos, interface gráfica, redes, entre outras funcionalidades.
+
+Ferramentas e utilidades
+    Conjunto de documentação, analisador de performance e empacotador de arquivos.
