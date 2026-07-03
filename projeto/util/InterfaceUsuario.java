@@ -9,50 +9,93 @@ public class InterfaceUsuario {
     public InterfaceUsuario() {
         entrada = new Scanner(System.in);
     }
-
     public double pedirValorImovel() {
-        double valor;
-        do {
-            System.out.print("Digite o valor do imóvel: ");
-            valor = entrada.nextDouble();
 
-            if (valor <= 0) {
-                System.out.println("Erro! O valor do imóvel deve ser positivo.");
+        while (true) {
+
+            try {
+
+                System.out.print("Digite o valor do imóvel: ");
+                double valor = entrada.nextDouble();
+
+                if (valor <= 0) {
+                    throw new IllegalArgumentException(
+                            "O valor deve ser maior que zero.");
+                }
+
+                return valor;
+
+            } catch (java.util.InputMismatchException e) {
+
+                System.out.println("Digite um número válido.");
+                entrada.nextLine();
+
+            } catch (IllegalArgumentException e) {
+
+                System.out.println(e.getMessage());
+
+            } finally {
+
+                System.out.println("----------------------------");
+
             }
-
-        } while (valor <= 0);
-
-        return valor;
+        }
     }
 
     public int pedirPrazoFinanciamento() {
-        int prazo;
-        do {
-            System.out.print("Digite o prazo do financiamento (em anos): ");
-            prazo = entrada.nextInt();
 
-            if (prazo <= 0) {
-                System.out.println("Prazo inválido! O prazo deve ser maior que zero.");
+        while (true) {
+
+            try {
+
+                System.out.print("Digite o prazo (anos): ");
+                int prazo = entrada.nextInt();
+
+                if (prazo <= 0)
+                    throw new IllegalArgumentException(
+                            "Prazo inválido.");
+
+                return prazo;
+
+            } catch (java.util.InputMismatchException e) {
+
+                System.out.println("Digite um número inteiro.");
+                entrada.nextLine();
+
+            } catch (IllegalArgumentException e) {
+
+                System.out.println(e.getMessage());
+
             }
-
-        } while (prazo <= 0);
-
-        return prazo;
+        }
     }
 
     public double pedirTaxaJurosAnual() {
-        double taxa;
-        do {
-            System.out.print("Digite a taxa de juros anual (%): ");
-            taxa = entrada.nextDouble();
 
-            if (taxa <= 0) {
-                System.out.println("Taxa inválida! A taxa de juros deve ser positiva.");
+        while (true) {
+
+            try {
+
+                System.out.print("Digite a taxa anual: ");
+                double taxa = entrada.nextDouble();
+
+                if (taxa <= 0)
+                    throw new IllegalArgumentException(
+                            "Taxa inválida.");
+
+                return taxa / 100;
+
+            } catch (java.util.InputMismatchException e) {
+
+                System.out.println("Digite um número válido.");
+                entrada.nextLine();
+
+            } catch (IllegalArgumentException e) {
+
+                System.out.println(e.getMessage());
+
             }
-
-        } while (taxa <= 0);
-
-        return taxa / 100; 
+        }
     }
 
     public double pedirAreaConstruida() {

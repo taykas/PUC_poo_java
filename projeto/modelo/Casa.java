@@ -24,6 +24,21 @@ public class Casa extends Financiamento {
                 (getValorImovel() / (getPrazoFinanciamento() * 12))
                 * (1 + (getTaxaJurosAnual() / 12));
 
+        double juros = pagamento - (getValorImovel() / (getPrazoFinanciamento() * 12));
+
+        try {
+
+            if (240 > (juros / 2)) {
+                throw new AumentoMaiorDoQueJurosException(
+                        "O aumento de R$240 é maior que a metade dos juros da mensalidade.");
+            }
+
+        } catch (AumentoMaiorDoQueJurosException e) {
+
+            System.out.println(e.getMessage());
+
+        }
+
         return pagamento + 240;
     }
 
