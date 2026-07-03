@@ -1,9 +1,13 @@
+package projeto.modelo;
+
 public class Casa extends Financiamento {
+
     public Casa(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
-        //TODO Auto-generated constructor stub
     }
 
-    int valorAdd = 240;
-
+    @Override
+    public double calcularPagamentoMensal() {
+        return super.calcularPagamentoMensal() + 240;
+    }
 }

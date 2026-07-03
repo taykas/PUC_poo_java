@@ -1,4 +1,4 @@
-
+package projeto.modelo;
 
 public class Financiamento {
 
@@ -13,17 +13,15 @@ public class Financiamento {
     }
 
     public double calcularPagamentoMensal() {
-        double pagamentoMensal = (valorImovel / (prazoFinanciamento * 12)) * (1 + (taxaJurosAnual / 12));
-        return pagamentoMensal;
+        return (valorImovel / (prazoFinanciamento * 12))
+                * (1 + (taxaJurosAnual / 12));
     }
 
-    
     public double calcularTotalPagamento() {
-        double total = calcularPagamentoMensal() * prazoFinanciamento * 12;
-        return total;
+        return calcularPagamentoMensal() * prazoFinanciamento * 12;
     }
 
-      public double getValorImovel() {
+    public double getValorImovel() {
         return valorImovel;
     }
 
@@ -34,5 +32,4 @@ public class Financiamento {
     public double getTaxaJurosAnual() {
         return taxaJurosAnual;
     }
-
 }

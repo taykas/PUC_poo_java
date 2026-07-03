@@ -1,8 +1,13 @@
+package projeto.modelo;
+
 public class Terreno extends Financiamento {
 
     public Terreno(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
         super(valorImovel, prazoFinanciamento, taxaJurosAnual);
-        //TODO Auto-generated constructor stub
     }
-    
+
+    @Override
+    public double calcularPagamentoMensal() {
+        return super.calcularPagamentoMensal() * 1.02;
+    }
 }
