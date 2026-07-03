@@ -21,10 +21,11 @@ public class Apartamento extends Financiamento {
     public double calcularPagamentoMensal() {
 
         double totalPagamento =
-                getValorImovel()
-                * (1 + (getTaxaJurosAnual() * getPrazoFinanciamento()));
+                getValorImovel() *
+                (1 + (getTaxaJurosAnual() * getPrazoFinanciamento()));
 
-        return totalPagamento / (getPrazoFinanciamento() * 12);
+        return totalPagamento /
+                (getPrazoFinanciamento() * 12);
     }
 
     public int getVagasGaragem() {
@@ -34,4 +35,5 @@ public class Apartamento extends Financiamento {
     public int getNumeroAndar() {
         return numeroAndar;
     }
+
 }

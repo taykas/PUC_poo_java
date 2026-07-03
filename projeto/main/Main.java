@@ -2,6 +2,7 @@ package projeto.main;
 
 import java.util.ArrayList;
 import projeto.modelo.*;
+import projeto.util.ArquivoFinanciamento;
 import projeto.util.InterfaceUsuario;
 
 public class Main {
@@ -21,9 +22,11 @@ public class Main {
         double area = ui.pedirAreaConstruida();
         double terreno = ui.pedirTamanhoTerreno();
 
+        // Casa digitada pelo usuário
         listaFinanciamentos.add(
                 new Casa(valor, prazo, taxa, area, terreno));
 
+        // Demais financiamentos fixos
         listaFinanciamentos.add(
                 new Casa(350000, 20, 0.09, 180, 300));
 
@@ -56,5 +59,29 @@ public class Main {
 
         System.out.printf("%nTotal dos imóveis: R$ %.2f%n", totalImoveis);
         System.out.printf("Total dos financiamentos: R$ %.2f%n", totalFinanciamentos);
+
+        ArquivoFinanciamento.salvarTexto(listaFinanciamentos);
+
+        System.out.println("\n===== DADOS LIDOS DO ARQUIVO TEXTO =====");
+
+        ArquivoFinanciamento.lerTexto();
+
+        ArquivoFinanciamento.salvarFinanciamentos(listaFinanciamentos);
+
+        listaFinanciamentos = ArquivoFinanciamento.recuperarFinanciamentos();
+
+        System.out.println("\n===== OBJETOS RECUPERADOS =====");
+
+        for (Financiamento f : listaFinanciamentos) {
+
+            System.out.printf(
+                    "%s - Valor do imóvel: R$ %.2f | Total: R$ %.2f%n",
+                    f.getClass().getSimpleName(),
+                    f.getValorImovel(),
+                    f.calcularTotalPagamento());
+
+        }
+
     }
+
 }
