@@ -1,6 +1,6 @@
 package projeto.modelo;
 
-public class Financiamento {
+public abstract class Financiamento {
 
     private double valorImovel;
     private int prazoFinanciamento;
@@ -12,10 +12,7 @@ public class Financiamento {
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
-    public double calcularPagamentoMensal() {
-        return (valorImovel / (prazoFinanciamento * 12))
-                * (1 + (taxaJurosAnual / 12));
-    }
+    public abstract double calcularPagamentoMensal();
 
     public double calcularTotalPagamento() {
         return calcularPagamentoMensal() * prazoFinanciamento * 12;

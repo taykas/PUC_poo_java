@@ -8,48 +8,53 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Financiamento> listaFinanciamentos = new ArrayList<>();
         InterfaceUsuario ui = new InterfaceUsuario();
 
-        System.out.println("=== Cadastro do primeiro financiamento ===");
+        ArrayList<Financiamento> listaFinanciamentos = new ArrayList<>();
+
+        System.out.println("=== Cadastro da Casa ===");
 
         double valor = ui.pedirValorImovel();
         int prazo = ui.pedirPrazoFinanciamento();
         double taxa = ui.pedirTaxaJurosAnual();
 
-        // Financiamento digitado pelo usuário
-        listaFinanciamentos.add(new Casa(valor, prazo, taxa));
+        double area = ui.pedirAreaConstruida();
+        double terreno = ui.pedirTamanhoTerreno();
 
-        // Demais financiamentos fixos
-        listaFinanciamentos.add(new Casa(350000, 20, 0.09));
+        listaFinanciamentos.add(
+                new Casa(valor, prazo, taxa, area, terreno));
 
-        listaFinanciamentos.add(new Apartamento(500000, 25, 0.10));
-        listaFinanciamentos.add(new Apartamento(420000, 18, 0.08));
+        listaFinanciamentos.add(
+                new Casa(350000, 20, 0.09, 180, 300));
 
-        listaFinanciamentos.add(new Terreno(180000, 15, 0.11));
+        listaFinanciamentos.add(
+                new Apartamento(500000, 25, 0.10, 2, 8));
+
+        listaFinanciamentos.add(
+                new Apartamento(420000, 18, 0.08, 1, 5));
+
+        listaFinanciamentos.add(
+                new Terreno(180000, 15, 0.11, "Residencial"));
 
         double totalImoveis = 0;
         double totalFinanciamentos = 0;
 
         System.out.println("\n=== RESULTADOS ===");
 
-        for (int i = 0; i < listaFinanciamentos.size(); i++) {
+        for (Financiamento f : listaFinanciamentos) {
 
-            Financiamento f = listaFinanciamentos.get(i);
-
-            double valorTotal = f.calcularTotalPagamento();
+            double total = f.calcularTotalPagamento();
 
             System.out.printf(
-                    "Financiamento %d - Valor do imóvel: R$ %.2f | Valor do financiamento: R$ %.2f%n",
-                    i + 1,
+                    "Imóvel: R$ %.2f | Total do financiamento: R$ %.2f%n",
                     f.getValorImovel(),
-                    valorTotal);
+                    total);
 
             totalImoveis += f.getValorImovel();
-            totalFinanciamentos += valorTotal;
+            totalFinanciamentos += total;
         }
 
-        System.out.printf("%nTotal de todos os imóveis: R$ %.2f%n", totalImoveis);
-        System.out.printf("Total de todos os financiamentos: R$ %.2f%n", totalFinanciamentos);
+        System.out.printf("%nTotal dos imóveis: R$ %.2f%n", totalImoveis);
+        System.out.printf("Total dos financiamentos: R$ %.2f%n", totalFinanciamentos);
     }
 }

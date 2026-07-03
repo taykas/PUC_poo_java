@@ -54,4 +54,29 @@ public class InterfaceUsuario {
 
         return taxa / 100; 
     }
+
+    public double pedirAreaConstruida() {
+        System.out.print("Digite a área construída: ");
+        return entrada.nextDouble();
+    }
+
+    public double pedirTamanhoTerreno() {
+        System.out.print("Digite o tamanho do terreno: ");
+        return entrada.nextDouble();
+    }
+
+    public int pedirVagasGaragem() {
+        System.out.print("Digite o número de vagas da garagem: ");
+        return entrada.nextInt();
+    }
+
+    public int pedirNumeroAndar() {
+        System.out.print("Digite o número do andar: ");
+        return entrada.nextInt();
+    }
+
+    public String pedirTipoZona() {
+        System.out.print("Digite o tipo de zona (Residencial/Comercial): ");
+        return entrada.next();
+    }
 }
